@@ -3,11 +3,11 @@ from setuptools import setup, find_packages
 with open('README.md', 'r') as readme_file:
     readme = readme_file.read()
 
-requirements = ['numpy>=1']
+requirements = ['numpy>=1', 'tensorflow>=2']
 
 setup(
-    name='rl',
-    version='0.0.0',
+    name='baakbrothers',
+    version='0.0.1',
     url='https://github.com/baakbrothers/rl',
     author='Yuki Kitayama',
     description='Reinforcement learning package',

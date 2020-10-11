@@ -1,4 +1,5 @@
 import numpy as np
+import tensorflow as tf
 from tensorflow.keras import Model
 from tensorflow.keras.layers import Input, Dense
 
@@ -55,7 +56,7 @@ def dqn_update_model(model, target_model, memory, min_experience, batch_size,
     # Update neural network weights
     with tf.GradientTape() as tape:
         action_values = tf.math.reduce_sum(
-            model.predict(np.atleast_2d(states)) * tf.one_hot(actions, num_actions),
+            model(np.atleast_2d(states.astype('float32'))) * tf.one_hot(actions, num_actions),
             axis=1
         )
         # Q network is trained byb minimising loss function
